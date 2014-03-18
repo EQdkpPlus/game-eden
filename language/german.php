@@ -37,26 +37,24 @@ $german_array = array(
 		13	=> 'Dieb',
 		14	=> 'Hexenmeister',
 		15	=> 'Krieger',
-
 	),
 
 	'races' => array(
-		'Unknown',
-		'Mensch',
-		'Zumi',
-		'Anuran',
-		'Halfkin',
-		'Ursun',
-
+		0	=> 'Unknown',
+		1	=> 'Mensch',
+		2	=> 'Zumi',
+		3	=> 'Anuran',
+		4	=> 'Halfkin',
+		5	=> 'Ursun',
 	),
 
 	'lang' => array(
-		'eden' => 'Eden Eternal',
-		'tank' => 'Tank',
-		'healer' => 'Heiler',
-		'support' => 'Unterstützung',
-		'melee' => 'Nahkampf',
-		'ranged' => 'Fernkampf',
+		'eden'							=> 'Eden Eternal',
+		'tank'							=> 'Tank',
+		'healer'						=> 'Heiler',
+		'support'						=> 'Unterstützung',
+		'melee'							=> 'Nahkampf',
+		'ranged'						=> 'Fernkampf',
 		
 		// Profile information
 		'uc_gender'						=> 'Geschlecht',

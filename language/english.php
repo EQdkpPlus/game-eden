@@ -37,28 +37,25 @@ $english_array = array(
 		13	=> 'Thief',
 		14	=> 'Warlock',
 		15	=> 'Warrior',
-
 	),
 
 	'races' => array(
-		'Unknown',
-		'Human',
-		'Zumi',
-		'Anuran',
-		'Halfkin',
-		'Ursun',
-
+		0	=> 'Unknown',
+		1	=> 'Human',
+		2	=> 'Zumi',
+		3	=> 'Anuran',
+		4	=> 'Halfkin',
+		5	=> 'Ursun',
 	),
 
 	'lang' => array(
-		'eden' => 'Eden Eternal',
-		'tank' => 'Tank',
-		'healer' => 'Healer',
-		'support' => 'Support',
-		'melee' => 'Melee',
-		'ranged' => 'Ranged',
-		
-		
+		'eden'							=> 'Eden Eternal',
+		'tank'							=> 'Tank',
+		'healer'						=> 'Healer',
+		'support'						=> 'Support',
+		'melee'							=> 'Melee',
+		'ranged'						=> 'Ranged',
+
 		// Profile information
 		'uc_gender'						=> 'Gender',
 		'uc_male'						=> 'Male',

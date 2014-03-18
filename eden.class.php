@@ -23,20 +23,87 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('eden')) {
 	class eden extends game_generic {
-		public static $shortcuts = array();
+		public $version			= '0.1';
 		protected $this_game	= 'eden';
 		protected $types		= array('classes', 'races', 'filters');
-		public $icons			= array('classes', 'classes_big', 'events', 'races');
 		protected $classes		= array();
 		protected $races		= array();
 		protected $filters		= array();
 		public $langs			= array('english', 'german');
 
+		protected $class_dependencies = array(
+			array(
+				'name'		=> 'race',
+				'type'		=> 'races',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'parent'	=> false
+			),
+			array(
+				'name'		=> 'class',
+				'type'		=> 'classes',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'primary'	=> true,
+				'colorize'	=> true,
+				'roster'	=> true,
+				'recruitment' => true,
+				'parent'	=> array(
+					'race' => array(
+						0 	=> 'all',		// Unknown
+						1 	=> 'all',		// Gnome
+						2 	=> 'all',		// Human
+						3 	=> 'all',		// Dwarf
+						4 	=> 'all',		// Night Elf
+						5 	=> 'all',		// Troll
+					),
+				),
+			),
+		);
+
+		protected $class_colors = array(
+			1	=> '#368BDE',
+			2	=> '#F87430',
+			3	=> '#368BDE',
+			4	=> '#8DCC47',
+			5	=> '#8DCC47',
+			6	=> '#B85AF0',
+			7	=> '#F8D25A',
+			8	=> '#B85AF0',
+			9	=> '#F87430',
+			10	=> '#8DCC47',
+			11	=> '#368BDE',
+			12	=> '#F8D25A',
+			13	=> '#F87430',
+			14	=> '#B85AF0',
+			15	=> '#F8D25A',
+		);
+
 		protected $glang		= array();
 		protected $lang_file	= array();
 		protected $path			= '';
 		public $lang			= false;
-		public $version			= '0.1';
+
+		public function profilefields(){
+			$xml_fields = array(
+				'gender'	=> array(
+					'type'			=> 'dropdown',
+					'category'		=> 'character',
+					'lang'			=> 'uc_gender',
+					'options'		=> array('Male' => 'uc_male', 'Female' => 'uc_female'),
+					'undeletable'	=> true,
+					'tolang'		=> true
+				),
+				'guild'	=> array(
+					'type'			=> 'text',
+					'category'		=> 'character',
+					'lang'			=> 'uc_guild',
+					'size'			=> 40,
+					'undeletable'	=> true,
+				),
+			);
+			return $xml_fields;
+		}
 
 		/**
 		* Initialises filters
@@ -73,25 +140,6 @@ if(!class_exists('eden')) {
 		*/
 
 		public function get_OnChangeInfos($install=false){
-			$info['class_color'] = array(
-				1	=> '#368BDE',
-				2	=> '#F87430',
-				3	=> '#368BDE',
-				4	=> '#8DCC47',
-				5	=> '#8DCC47',
-				6	=> '#B85AF0',
-				7	=> '#F8D25A',
-				8	=> '#B85AF0',
-				9	=> '#F87430',
-				10	=> '#8DCC47',
-				11	=> '#368BDE',
-				12	=> '#F8D25A',
-				13	=> '#F87430',
-				14	=> '#B85AF0',
-				15	=> '#F8D25A',
-												
-				);
-
 			$info['aq'] = array();
 
 			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install
@@ -101,5 +149,4 @@ if(!class_exists('eden')) {
 		}
 	}
 }
-if(version_compare(PHP_VERSION, '5.3.0', '<')) registry::add_const('short_eden', eden::$shortcuts);
 ?>
