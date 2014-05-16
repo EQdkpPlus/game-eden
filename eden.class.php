@@ -139,8 +139,8 @@ if(!class_exists('eden')) {
 		* @return array
 		*/
 
-		public function get_OnChangeInfos($install=false){
-			$info['aq'] = array();
+		public function install($install=false){
+			
 
 			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install
 			#if($install){
