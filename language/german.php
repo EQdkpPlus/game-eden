@@ -61,7 +61,8 @@ $german_array = array(
 		'uc_male'						=> 'Männlich',
 		'uc_female'						=> 'Weiblich',
 		'uc_guild'						=> 'Gilde',
-
+		'uc_race'						=> 'Rasse',
+		'uc_class'						=> 'Klasse',
 	),
 );
 ?>
